@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),'../'))
 from capsules.capsule.src.utils.config import Config
 from capsules.capsule.src.configs.config import CFG
-from capsules.capsule.src.models.PackageModel import SegmentationExecutor,PackageModel,PackageExecutor,SegmentationResponse,SegmentationOutputs,ImageData,OutputData
+from capsules.capsule.src.models.Model import SegmentationExecutor,PackageModel,PackageExecutor,SegmentationResponse,SegmentationOutputs,ImageData,OutputData
 from sdks.novavision.src.base.response import Response
 from pydantic import ValidationError
 from sdks.novavision.src.media.image import Image

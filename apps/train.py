@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'../../../'))
 import requests
 import json
-from capsules.capsule.src.models.PackageModel import PackageModel,PackageExecutor,TrainConfigs,TrainExecutor,TrainRequest,ConfigPath,ConfigBatchSize,Path,BatchSize
+from capsules.capsule.src.models.Model import PackageModel,PackageExecutor,TrainConfigs,TrainExecutor,TrainRequest,ConfigPath,ConfigBatchSize,Path,BatchSize
 from capsules.capsule.src.utils.config import Config
 from capsules.capsule.src.configs.config import CFG
 

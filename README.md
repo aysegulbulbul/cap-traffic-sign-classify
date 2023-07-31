@@ -1,2 +1,2 @@
-# capsule
-Capsule for NOVAVISION
+# visu-capsule
+Capsule for VISU

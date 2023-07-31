@@ -4,7 +4,7 @@
 CFG = {
     "data": {
         "path": "oxford_iiit_pet:3.2.0",
-        "image_size": 128,
+        "image_size": 30,
         "load_with_info": True
     },
     "train": {

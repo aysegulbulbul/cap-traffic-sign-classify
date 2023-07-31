@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__),'../'))
 from capsules.capsule.src.configs.config import CFG
-from capsules.capsule.src.models.PackageModel import TrainExecutor,PackageModel,PackageExecutor,TrainResponse,TrainOutputs,ImageData,OutputData
+from capsules.capsule.src.models.Model import TrainExecutor,PackageModel,PackageExecutor,TrainResponse,TrainOutputs,ImageData,OutputData
 from sdks.novavision.src.base.response import Response
 from pydantic import ValidationError
 from sdks.novavision.src.base.capsule import Capsule
