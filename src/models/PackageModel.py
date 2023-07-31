@@ -3,7 +3,26 @@ import numbers
 from pydantic import Field, validator
 from typing import List, Optional, Union, Any, Dict,Literal
 
+from capsules.TrafficSignClassify.src.models.Model import PackageExecutor  ## en son eklendi
+
 from sdks.novavision.src.base.model import Package, Executor, ImageList, Param, Inputs, Configs, Outputs, Response, Request
+
+#Yeni classlar oluşturuldu.
+
+class ImageLabel(Param):
+    name: Literal["ImageLabel"] = "ImageLabel"
+    value: List
+    type: Literal["ImageLabel"] = "ImageLabel"
+    field: Literal["Label"] = "Label"
+
+class OutputLabel(Param):
+    name: Literal["OutputLabel"] = "OutputLabel"
+    value: ImageLabel
+    type: Literal["list"] = "list"
+    field: Literal["Label"] = "Label"
+
+
+
 
 
 class InputImage(Param):
@@ -25,9 +44,9 @@ class OutputData(Param):
     field: Literal["data"] = "data"
 
 
-class configTypeSegmentation(Param):
-    name: Literal["segmentation"] = "segmentation"
-    value: Literal["segmentation"] = "segmentation"
+class configTypeTraffic(Param):
+    name: Literal["traffic"] = "traffic"
+    value: Literal["traffic"] = "traffic"
     type: Literal["string"] = "string"
     field: Literal["option"] = "option"
 
@@ -35,52 +54,54 @@ class configTypeSegmentation(Param):
 
 class ConfigType(Param):
     name: Literal["configType"] = "configType"
-    value:Union[configTypeSegmentation]
+    value:Union[configTypeTraffic]
     type: Literal["object"] = "object"
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
 
 
 
-class SegmentationInputs(Inputs):
+class TrafficInputs(Inputs):
     inputImage: InputImage
     value: str
     type: Literal["object"] = "object"
     field: Literal["input"] = "input"
 
 
-class SegmentationConfigs(Configs):
+class TrafficConfigs(Configs):
     configType: ConfigType
     value: str = "Configs"
     type: Literal["object"] = "object"
     field: Literal["config"] = "config"
 
 
-class SegmentationOutputs(Outputs):
-    OutputData: OutputData
+class TrafficOutputs(Outputs):
+    #OutputData: OutputData
+    OutputLabel: OutputLabel
     type: Literal["object"] = "object"
     field: Literal["output"] = "output"
 
+#OutputLabel eklendi.
 
 
 
-class SegmentationRequest(Request):
-    inputs: Optional[SegmentationInputs]
-    configs: SegmentationConfigs
+class TrafficRequest(Request):
+    inputs: Optional[TrafficInputs]
+    configs: TrafficConfigs
     class Config:
         schema_extra = {
             "target": "configs"
         }
 
 
-class SegmentationResponse(Response):
-    outputs: SegmentationOutputs
+class TrafficResponse(Response):
+    outputs: TrafficOutputs
 
 
 
-class SegmentationExecutor(Executor):
-    name = "Segmentation"
-    value: Union[SegmentationRequest, SegmentationResponse]
-    type: Literal["Segmentation"] = "Segmentation"
+class TrafficExecutor(Executor):
+    name = "Traffic"
+    value: Union[TrafficRequest, TrafficResponse]
+    type: Literal["Traffic"] = "Traffic"
     field: Literal["executor"] = "executor"
 
     class Config:
@@ -158,15 +179,14 @@ class TrainExecutor(Executor):
 
 class PackageExecutor(Executor):
     name = "executor"
-    value: Union[SegmentationExecutor,TrainExecutor]
+    value: Union[TrafficExecutor,TrainExecutor]
     type:Literal["executor"] = "executor"
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
 
 
-
 class PackageModel(Package):
     type = "capsule"
-    name = "Segmentation"
+    name = "Traffic"
     uID = "1221112"
     executor: PackageExecutor
     field: Literal["executor"] = "executor"
@@ -183,3 +203,5 @@ class RequestModel(Request):
 
 class ResponseModel(Response):
     package: PackageModel
+
+
