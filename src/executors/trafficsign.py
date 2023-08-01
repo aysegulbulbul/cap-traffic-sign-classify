@@ -26,9 +26,9 @@ class TrafficInferrer(Capsule):
 
 
     @staticmethod
-    def bootstrap():#modeli kullanmak için
+    def bootstrap():#modeli kullanmak için ön yükleme
         config = Config.from_json(CFG)
-        saved_path = config.project.path + '/capsules/capsule/src/weights/trafficsign/Trafic_signs_model.h5'
+        saved_path = config.project.path + '/capsules/TrafficSignClassify/src/weights/trafficsign/Trafic_signs_model.h5'
         model = tf.keras.models.load_model(saved_path)
         model = {"model":model}
         return model
@@ -51,7 +51,7 @@ class TrafficInferrer(Capsule):
         #return json.loads(pred)
 
     @property
-    def run(self):  #gelen parametreleri kullanıp cevap oluşturuyoruz(json tipinde)
+    def run(self):  #gelen parametreleri kullanip cevap olusturuyoruz(json tipinde)
             pred_list = []
            # img_list = []
             for img in self.images: #image ı yakaladik.
@@ -84,8 +84,10 @@ class TrafficInferrer(Capsule):
         shape=image.shape
         tensor_image = tf.reshape(image, [1, shape[0], shape[1], shape[2]])
         pred = np.argmax(self.model.predict([tensor_image])).astype("float32")
+        print(pred)
 
         #self.model=h5 ->tahmin yapmasını sağlıyor =pred
+
 
         classes = {1: 'Speed limit (20km/h)',
                    2: 'Speed limit (30km/h)',
@@ -137,7 +139,7 @@ class TrafficInferrer(Capsule):
         return algilanan
         #return json.loads(algilanan)
         #print("Hello")
-        print(sign)
+        #print(sign)
         #print('Hello')
 
 #modeli içeri attım, executorsa modeli kullanarak verdiğim görüntüyü işledim,
