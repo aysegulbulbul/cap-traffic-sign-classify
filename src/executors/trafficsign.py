@@ -33,6 +33,8 @@ class TrafficInferrer(Capsule):
         model = {"model":model}
         return model
 
+
+
     def preprocess(self, image):
         image = tf.image.resize(image, (self.image_size, self.image_size))
         return tf.cast(image, tf.float32) / 255.0
