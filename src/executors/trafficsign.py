@@ -21,7 +21,8 @@ class TrafficInferrer(Capsule):
         self.image_size = self.config.data.image_size
         self.model =bootstrap["Traffic"]["model"]
         self.request.model = PackageModel(**(self.request.data))
-        self.images = self.request.get_param("ImageList") #burasaı tetikleniyor
+        self.images = self.request.get_param("ImageList") #burasaı tetikleniyor.
+
 
 
     @staticmethod
