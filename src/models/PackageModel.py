@@ -21,10 +21,6 @@ class OutputLabel(Param):
     type: Literal["list"] = "list"
     field: Literal["Label"] = "Label"
 
-
-
-
-
 class InputImage(Param):
     name: Literal["InputImage"] = "InputImage"
     value: ImageList
