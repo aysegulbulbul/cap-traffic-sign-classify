@@ -2,9 +2,9 @@ import os
 import tensorflow as tf
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
-from capsules.TrafficSignClassify.src.utils.logger import get_logger
-from capsules.TrafficSignClassify.src.utils.config import Config
-from capsules.TrafficSignClassify.src.configs.config import CFG
+from capsules.capsule.src.utils.logger import get_logger
+from capsules.capsule.src.utils.config import Config
+from capsules.capsule.src.configs.config import CFG
 
 
 LOG = get_logger('trainer')
