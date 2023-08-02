@@ -80,8 +80,6 @@ tests
   * Models:
     * PackageModel.py: Contains class definitions for creating JSON requests and responses using the pydantic module.
   * Weights:
-    * Traffic:
-      * TrafficSignRecognition.pt: Exported model weight file in a format understandable by YOLOv5. The path of this file is also given to the YOLO capsule for use.
-
+   
 
 
