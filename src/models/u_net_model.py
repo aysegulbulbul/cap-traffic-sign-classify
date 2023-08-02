@@ -6,13 +6,13 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),'../'))
 # external
 import tensorflow as tf
-from capsules.capsule.src.dataloaders.dataloader import DataLoader
-from capsules.capsule.src.utils.logger import get_logger
-from capsules.capsule.src.models.train_model import UnetTrainer
+from capsules.TrafficSignClassify.src.dataloaders.dataloader import DataLoader
+from capsules.TrafficSignClassify.src.utils.logger import get_logger
+from capsules.TrafficSignClassify.src.models.train_model import UnetTrainer
 from tensorflow_examples.models.pix2pix import pix2pix
 
 # internal
-from capsules.capsule.src.classes.base_class import BaseModel
+from capsules.TrafficSignClassify.src.classes.base_class import BaseModel
 
 LOG = get_logger('unet')
 

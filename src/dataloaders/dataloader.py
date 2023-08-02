@@ -8,7 +8,7 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'../'))
 
-from capsules.capsule.src.configs.data_schema import SCHEMA
+from capsules.TrafficSignClassify.src.configs.data_schema import SCHEMA
 
 
 class DataLoader:
