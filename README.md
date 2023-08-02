@@ -28,6 +28,7 @@ apps
    |-- train.py
 notebooks
    |-- unet.ipynb
+   |-- TrafficSignModalTrain.ipynb
 resources
    |-- request_data.json
    |-- yorkshire_terrier.jpg
@@ -75,7 +76,7 @@ tests
   * Configs:
     * config.py: Contains config files that includes options to make changes on inputs.
   * Executors:
-    * trafficsign.py: Used to create a JSON response using classes defined in PackageModel. It processes the incoming request and connects with the YOLO capsule, capturing Yolo Capsule's output.
+    * trafficsign.py: Used to create a JSON response using classes defined in PackageModel. 
   * Models:
     * PackageModel.py: Contains class definitions for creating JSON requests and responses using the pydantic module.
   * Weights:
