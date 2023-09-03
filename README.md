@@ -5,7 +5,7 @@
 - Docker
 - GitSCM
 
-##Installation
+## Installation
 1. Capsules should be under capsules directory
 ```
 git submodule add https://github.com/novavision-ai/package.git TrafficSignClassify
